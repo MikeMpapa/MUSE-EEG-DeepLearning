@@ -130,6 +130,7 @@ def CreateDataset_FinalScorePrediction(original_datapath,h,stride,smoothing,padd
                                     f.write("%s " % fet)
                                 f.write('\n')
                         f.close 
+                        np.save(output_datapath + 'user_'+str(user+1)+'/session_'+str(session+1)+'/'+filename+'_'+win+'/'+str(i), sample)
 
 def dataReader(input):
      x = np.load(input)
