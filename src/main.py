@@ -71,19 +71,7 @@ def CreateDataset_SvF(original_datapath):
                         f.close 
                     np.save(output + '/'+tmp_path.split('/')[-1].replace('.npz',''), data)
 
-                    #break
-                #break
-            #break
-        #print np.min(samples_in_rec),"---MIN NUMBER OF SAMPLES"
-        #print np.max(samples_in_rec),"---MAX NUMBER OF SAMPLES"
-        #print np.mean(samples_in_rec),"---MEAN NUMBER OF SAMPLES"
-
-        #x = sorted(zip(samples_in_rec,fnames))
-        #with open('../EEG_DATA_DEEP/SvF/samples_in_recording_data.csv','w') as f:
-        # for i in x:      
-        #     f.write(str(i[0])+" "+i[1])
-        #     f.write('\n')
-        # f.close 
+            
 def CreateDataset_FinalScorePrediction(original_datapath,h,stride,smoothing,padding):
     for fold in range(1):
         samples_in_rec = []
@@ -157,23 +145,11 @@ def dataReader(input):
     #total_samples_in_file = x['a'].shape[0]
      recording = [] #contains all feature vectors for a single trial
 
-#[a,b,g,d,t,Aa,Ab,Ag,Ad,At,ascore,bscore,gscore,dscore,tscore] --> 15*4 = 60 features
-    # print input
+     #[a,b,g,d,t,Aa,Ab,Ag,Ad,At,ascore,bscore,gscore,dscore,tscore] --> 15*4 = 60 features
      for i in range(total_samples_in_file):  
              feature_vector = list(x['a'][i]) + list(x['b'][i]) + list(x['g'][i]) + list(x['d'][i]) + list(x['t'][i]) + list(x['Aa'][i]) + list(x['Ab'][i]) + list(x['Ag'][i]) + list(x['Ad'][i]) + list(x['At'][i]) + list(x['ascore'][i]) + list(x['bscore'][i]) + list(x['gscore'][i]) + list(x['dscore'][i]) + list(x['tscore'][i]) 
              recording.append(feature_vector)
-     '''
-     with open(output+'/'+input.split('/')[-1].replace('npz','csv'),'w') as f:
-         for i in range(total_samples_in_file):
-             
-             feature_vector = list(x['a'][i]) + list(x['b'][i]) + list(x['g'][i]) + list(x['d'][i]) + list(x['t'][i]) + list(x['Aa'][i]) + list(x['Ab'][i]) + list(x['Ag'][i]) + list(x['Ad'][i]) + list(x['At'][i]) + list(x['ascore'][i]) + list(x['bscore'][i]) + list(x['gscore'][i]) + list(x['dscore'][i]) + list(x['tscore'][i]) 
-             for fet in feature_vector:
-                f.write("%s " % fet)
-             f.write('\n')
-             recording.append(feature_vector)
-     f.close
-     ''' 
-     #np.save(output+'/'+input.split('/')[-1].replace('.npz',''),recording)
+  
      return total_samples_in_file,recording
 
 
@@ -211,8 +187,6 @@ def dataSpliter(data,HEIGHT,WINDOW_STRIDE,WINDOW_SMOOTHING,PADDING):
 
 
     
-
-
 
 if __name__ == '__main__':
 
