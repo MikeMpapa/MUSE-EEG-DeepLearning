@@ -10,7 +10,7 @@ def parseArguments():
     parser.add_argument('-f' , '--foldPath', required=True, help="path to the root of the folds")  
     parser.add_argument('-wh' , '--imageHeight', default=50 ,type=int,  help="vertical dimention of input frame  -image height-")  
     parser.add_argument('-ws' , '--windowStride', default=5, type=int, help="stride window to split the sequencial frames of a recording")    
-    parser.add_argument('-s' , '--smoothingStride', default=3, type=int, help="stride window to basedd on witch mossing values are created at the end of the last recording")    
+    parser.add_argument('-s' , '--smoothingStride', default=3, type=int, help="stride window to based on witch mossing values are created at the end of the last recording")    
     parser.add_argument('-p' , '--padding', default=0, type=int, choices = [0,1], help="0: zerro padding - 1: mean padding")    
 
     args = parser.parse_args()
