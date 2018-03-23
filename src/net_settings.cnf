@@ -1,0 +1,9 @@
+image_height =
+image_width =
+classes =
+batch_size =
+epochs =
+lr = 0.01
+decay = 1e-6
+momentum = 0.9
+nesterov = True

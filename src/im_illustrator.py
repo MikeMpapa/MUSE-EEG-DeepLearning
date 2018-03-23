@@ -25,8 +25,9 @@ def np_to_image(dir, output,imList,imPaths):
 
     for i,im in enumerate(imList):
         #im = im.astype(np.uint8)
-        misc.imsave(output+'/'+imPaths[i]+'.png', im)
-
+        #misc.imsave(output+'/'+imPaths[i]+'.png', im)
+       # im.imshow(gradient, aspect='auto', cmap='seismic')
+        plt.imsave(output+'/'+imPaths[i]+'.png', im,cmap='PiYG',format='png')
 
 
 
